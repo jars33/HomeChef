@@ -1,4 +1,4 @@
-# HomeChef
+# 🧑‍🍳 HomeChef
 
 ## Overview
 
@@ -38,9 +38,9 @@ The primary objective is to provide a user-friendly application prototype that:
 
 The codebase is structured as follows:
 
-- **Backend (`/backend`):** Ruby on Rails application with RESTful API endpoints.
-- **Frontend (`/frontend`):** React application with components for ingredient input, recipe listing, and recipe details.
-- **Database (`/database`):** PostgreSQL database.
+- **Backend (`/homechef-api`):** Ruby on Rails application with RESTful API endpoints.
+- **Frontend (`/homechef-client`):** React application with components for ingredient input, recipe listing, and recipe details.
+- **Database:** PostgreSQL database.
 
 The entire codebase is available in the current GitHub repository.
 
@@ -99,18 +99,18 @@ The application is containerized for easy setup and deployment using Docker. Fol
 2. **Navigate to the Project Directory:**
    Change to the project's root directory in your terminal.
    ```
-   cd homechef-recipe-finder
+   cd homechef
    ```
 
 3. **Docker Setup:**
    Ensure you have Docker installed on your machine. If not, download and install Docker from [Docker's official website](https://www.docker.com/get-started).
 
 4. **Build and Run the Application:**
-   Use Docker Compose to build and run the application. This will set up both the frontend, backend, and the database.
+   Use Docker Compose to build and run the application. This will set up both the frontend and backend
    ```
    docker-compose up --build
    ```
-5. **Database Migration and Seeding (First-Time Setup):**
+5. **Database Creation, Migration and Seeding (First-Time Setup):**
 If it's your first time running the application, you'll need to create, migrate, and seed the database. Execute the following commands in a separate terminal:
 - To create the database:
   ```
