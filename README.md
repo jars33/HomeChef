@@ -1,5 +1,7 @@
 # 🧑‍🍳 HomeChef
 
+https://homechef-client.fly.dev/
+
 ## Overview
 
 HomeChef is a simple, yet effective web application designed to help users discover recipes based on the ingredients they have at home. This prototype serves as a starting point for discussing current implementation details and potential improvements.
