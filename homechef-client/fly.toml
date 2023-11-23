@@ -1,0 +1,25 @@
+app = "homechef-client"
+
+[build]
+dockerfile = "Dockerfile"
+
+[[services]]
+  internal_port = 80
+  protocol = "tcp"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [[services.http_checks]]
+    interval = 10000
+    timeout = 2000
+    method = "get"
+    path = "/"
+    protocol = "http"
+    tls_skip_verify = false
+    headers = {}

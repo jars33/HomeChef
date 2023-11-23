@@ -1,0 +1,55 @@
+# fly.toml app configuration file generated for homechef-api on 2023-11-22T17:01:04Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "homechef-api"
+primary_region = "cdg"
+kill_signal = "SIGINT"
+kill_timeout = "5s"
+
+[experimental]
+  auto_rollback = true
+
+[build]
+  dockerfile = "./Dockerfile"
+
+[env]
+  PORT = "3000"
+  POSTGRES_DB = "homechef"
+  POSTGRES_HOST = "https://homechef-db.fly.dev"
+  POSTGRES_PORT = "5432"
+  POSTGRES_USER = "user"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 3000
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
+
+  [[services.http_checks]]
+    interval = "10s"
+    timeout = "2s"
+    grace_period = "1s"
+    method = "get"
+    path = "/health_check"
+    protocol = "http"
+    tls_skip_verify = true
+
+[[statics]]
+  guest_path = "/rails/public"
+  url_prefix = "/"
