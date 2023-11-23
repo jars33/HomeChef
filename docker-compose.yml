@@ -6,9 +6,6 @@ services:
     build:
       context: ./homechef-api
       dockerfile: Dockerfile
-    # command: >
-    #   sh -c "bin/rails server -p 3000 -b '0.0.0.0'"
-    # command: ["rails", "server", "-p", "3000", "-b", "0.0.0.0"]
     ports:
       - "3000:3000"
     tty: true
@@ -24,8 +21,6 @@ services:
     ports:
       - "5432:5432"
     env_file: ./.env  # Path to .env in the root directory
-    # volumes:
-    #   - db-data:/var/lib/postgresql/data
 
   homechef-client:
     build: ./homechef-client
@@ -33,7 +28,4 @@ services:
       - "80:80"
     depends_on:
       - homechef-api
-
-# volumes:
-#   db-data:
 
