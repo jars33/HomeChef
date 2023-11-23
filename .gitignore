@@ -2,3 +2,5 @@
 /.env*
 !/.env*.erb
 /.dockerignore
+.vscode/
+.DS_Store
